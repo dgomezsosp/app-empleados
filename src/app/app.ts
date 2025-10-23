@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core'
+import { Component, OnInit, signal } from '@angular/core'
 import { Empleado } from './empleado.model'
+import { ServicioEmpleados } from './servicio-empleados'
 
 @Component({
   selector: 'app-root',
@@ -7,19 +8,25 @@ import { Empleado } from './empleado.model'
   standalone: false,
   styleUrl: './app.css'
 })
-export class App {
+export class App implements OnInit {
   protected readonly title = signal('Registro de empleados')
 
-  empleados: Empleado[] = [
-    new Empleado('David', 'Gómez', 'programador', 3000),
-    new Empleado('Juan', 'Gómez', 'programador', 4000),
-    new Empleado('Pepe', 'Gómez', 'programador', 5000)
-  ]
+  empleados: Empleado[] = []
+
+  // Se inyecta el servicio creado servicio-empleados
+  constructor (private inyectarEmpleado: ServicioEmpleados) {
+    // this.empleados = this.inyectarEmpleado.empleados
+  }
+
+  ngOnInit (): void {
+    this.empleados = this.inyectarEmpleado.empleados
+  }
 
   registrarUsuario () {
     const miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSueldo)
-
-    this.empleados.push(miEmpleado)
+    // Habría que poner en el constructor: private miServicio: ServicioMostrarEmpleados
+    // this.miServicio.muestraMensaje(`Nombre de mi empleado: ${miEmpleado.nombre}`)
+    this.inyectarEmpleado.agregarEmpleadoServicio(miEmpleado)
   }
 
   cuadroNombre: string = ''

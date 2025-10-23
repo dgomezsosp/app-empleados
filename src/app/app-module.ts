@@ -4,8 +4,10 @@ import { BrowserModule } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing-module'
 import { App } from './app'
 import { FormsModule } from '@angular/forms'
-import { EmpleadoHijoC } from './empleado-hijo-c/empleado-hijo-c';
+import { EmpleadoHijoC } from './empleado-hijo-c/empleado-hijo-c'
 import { CaracteristicasEmpleadoC } from './caracteristicas-empleado-c/caracteristicas-empleado-c'
+import { ServicioMostrarEmpleados } from './servicio-mostrar-empleados'
+import { ServicioEmpleados } from './servicio-empleados'
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import { CaracteristicasEmpleadoC } from './caracteristicas-empleado-c/caracteri
     FormsModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(), ServicioMostrarEmpleados, ServicioEmpleados
   ],
   bootstrap: [App]
 })
