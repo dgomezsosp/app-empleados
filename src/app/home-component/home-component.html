@@ -1,0 +1,17 @@
+<div class="titulo">
+  <h1>{{title()}} </h1>
+</div>
+
+<form>
+  Nombre: <input type="text" name="cuadroNombre" [(ngModel)]="cuadroNombre">
+  Apellido: <input type="text" name="cuadroApellido" [(ngModel)]="cuadroApellido">
+  Cargo: <input type="text" name="cuadroCargo" [(ngModel)]="cuadroCargo">
+  Sueldo: <input type="number" name="cuadroSueldo" [(ngModel)]="cuadroSueldo">
+  <br>
+  <input type="button" value="Agregar" (click)="registrarUsuario()">
+</form>
+
+
+
+
+<app-empleado-hijo-c [empleados2]="empleados"></app-empleado-hijo-c>

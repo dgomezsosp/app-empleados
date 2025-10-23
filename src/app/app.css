@@ -1,0 +1,30 @@
+/* Resetear estilos de lista */
+
+
+.navbar {
+  list-style: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-color: #c9c9c9;
+}
+
+/* Elementos de navegación */
+.nav-item {
+  margin: 0;
+}
+
+/* Enlaces de navegación */
+.nav-link {
+  display: block;
+  padding: 15px 20px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto hover */
+.nav-link:hover {
+  background-color: #c2c0c0;
+}

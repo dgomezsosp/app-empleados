@@ -1,20 +1,18 @@
-<div class="titulo">
-  <h1>{{title()}} </h1>
-</div>
+<ul class="navbar">
+  <li class="nav-item">
+    <a class="nav-link" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/proyectos">Proyectos</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/quienes">Quienes somos</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/contacto">Contacto</a>
+  </li>
+</ul>
 
-<form>
-  Nombre: <input type="text" name="cuadroNombre" [(ngModel)]="cuadroNombre">
-  Apellido: <input type="text" name="cuadroApellido" [(ngModel)]="cuadroApellido">
-  Cargo: <input type="text" name="cuadroCargo" [(ngModel)]="cuadroCargo">
-  Sueldo: <input type="number" name="cuadroSueldo" [(ngModel)]="cuadroSueldo">
-  <br>
-  <input type="button" value="Agregar" (click)="registrarUsuario()">
-</form>
-
-
-
-
-<app-empleado-hijo-c [empleados2]="empleados"></app-empleado-hijo-c>
-
+<router-outlet></router-outlet>
 
 
