@@ -1,9 +1,15 @@
+<h2>Listado de empleados</h2>
 @for (empleado of empleados2; track $index) {
+
   {{$index+1}}
   {{empleado.nombre}}
   {{empleado.apellido}}
   {{empleado.cargo}}
   {{empleado.sueldo}}
+  <a style="margin-left: 20px;" [routerLink]="['/actualiza', $index]" [queryParams]="{action:1}">Actualizar</a>
+  <a style="margin-left: 10px;" [routerLink]="['/actualiza', $index]" [queryParams]="{action:2}">Eliminar</a>
+
+
   <br>
   <app-caracteristicas-empleado-c (caracteristicasEmpleados)="recibirCaracteristica(empleado, $event)" ></app-caracteristicas-empleado-c>
   <br>
@@ -14,6 +20,7 @@
   </ul>
   <br>
 }
+Pulsa sobre el empleado para actualizar sus datos
 
 
 

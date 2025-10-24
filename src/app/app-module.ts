@@ -13,13 +13,20 @@ import { ProyectosComponent } from './proyectos-component/proyectos-component'
 import { QuienesComponent } from './quienes-component/quienes-component'
 import { ContactoComponent } from './contacto-component/contacto-component'
 import { RouterModule, Routes } from '@angular/router'
+import { ActualizaComponent } from './actualiza-component/actualiza-component'
+import { ErrorPersonalizado } from './error-personalizado/error-personalizado'
+import { DataServices } from './data-services'
+import { provideHttpClient } from '@angular/common/http'
 
 const appRoutes: Routes = [
 
   { path: '', component: HomeComponent },
   { path: 'proyectos', component: ProyectosComponent },
   { path: 'quienes', component: QuienesComponent },
-  { path: 'contacto', component: ContactoComponent }
+  { path: 'contacto', component: ContactoComponent },
+  { path: 'actualiza/:id', component: ActualizaComponent },
+  { path: '**', component: ErrorPersonalizado }
+
 ]
 @NgModule({
   declarations: [
@@ -29,16 +36,21 @@ const appRoutes: Routes = [
     HomeComponent,
     ProyectosComponent,
     QuienesComponent,
-    ContactoComponent
+    ContactoComponent,
+    ActualizaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [
-    provideBrowserGlobalErrorListeners(), ServicioMostrarEmpleados, ServicioEmpleados
+    provideBrowserGlobalErrorListeners(),
+    ServicioMostrarEmpleados,
+    ServicioEmpleados,
+    DataServices,
+    provideHttpClient()
   ],
   bootstrap: [App]
 })
